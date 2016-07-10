@@ -1,0 +1,46 @@
+{  
+	
+  "author": "Everest everestlion@qq.com",
+
+  "name": "ChromeTools",  
+
+  "version": "2",
+
+  "manifest_version": 2,
+
+  "description": "Chrome Toos",  
+
+  "homepage_url": "http://www.linkman.info",
+
+  "page_action": {
+	
+	"default_title": "Chrome 插件工具--By Everest",
+	"default_popup": "popup.html"
+  },
+  "icons": {
+      "128": "icons/x128.png",
+      "16": "icons/x16.png",
+      "32": "icons/x32.png",
+      "48": "icons/x48.png"
+   },
+  "permissions": ["activeTab","tabs", "http://*/*", "https://*/*", "cookies"],
+
+  "background": { "page": "background.html" },
+
+  "default_locale": "en",
+
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://connect.facebook.net https://platform.twitter.com; object-src 'self' http://localhost:8090/swf/",
+
+ "content_scripts": [
+    {
+      "matches": ["https://*.smartisan.com/*"],
+      "js": ["js/content_scripts.js"],
+      "all_frames": false
+    },
+    {"matches": ["http://localhost:8090/*"],
+      "js": ["js/tools.js"],
+      "all_frames": false
+    }
+  ]
+
+} 
